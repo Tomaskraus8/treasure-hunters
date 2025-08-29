@@ -1,15 +1,11 @@
 <?php declare(strict_types = 1);
 
-	use App\FileWatcher\FileWatcherConfig;
-	use App\FileWatcher\Mailer\FileWatcherMailer;
 	use App\Logger\DatabaseLogger;
 	use App\Logger\DatabaseLoggerInterface;
 	use App\Userstamp;
 	use Pho\Auth\Interface\SessionConfigInterface;
-	use Pho\Auth\Session\SessionConfig;
 	use Pho\DI\Container;
 	use Pho\DI\Containers;
-	use Pho\FileWatcher\FileWatcher;
 	use Pho\FileWatcher\FileWatcherInterface;
 	use Pho\Http\Class\HttpConfig;
 	use Pho\Http\Interface\HttpConfigInterface;
@@ -40,7 +36,6 @@
 
 		$httpConfig = new HttpConfig(HTTP_DOMAIN, ENV->isLocalhostOrDevel(), ROOT_DIR);
 		$mailerConfig = new MailerConfig(MAILER->fromMail, MAILER->fromName, MAILER->host, MAILER->port, MAILER->username, MAILER->password, HTTP_DOMAIN, whitelist: MAILER->whitelist, isWhitelistActive: MAILER->isWhitelistActive);
-		$fileWatcher = new FileWatcher(new FileWatcherConfig(), new FileWatcherMailer(), new Location(ROOT_DIR));
 
 		$container->registerShared(DatabaseInterface::class, $db);
 		$container->registerShared(HttpConfigInterface::class, $httpConfig);
