@@ -40,7 +40,6 @@
 		$container->registerShared(DatabaseInterface::class, $db);
 		$container->registerShared(HttpConfigInterface::class, $httpConfig);
 		$container->registerShared(MailerConfigInterface::class, $mailerConfig);
-		$container->registerShared(FileWatcherInterface::class, $fileWatcher);
 
 		Containers::add(Containers::MAIN, $container);
 	})();

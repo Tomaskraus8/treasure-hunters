@@ -1,6 +1,7 @@
 <?php declare(strict_types = 1);
 
 	use App\Service\Runtime;
+	use InternalApi\GameController;
 	use Pho\Api\ApiRouter;
 	use Pho\Auth\Session\SessionService;
 	use Pho\DI\Containers;
