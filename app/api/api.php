@@ -1,17 +1,5 @@
 <?php declare(strict_types = 1);
 
-	use App\InternalApi\v1\AccreditedEntityController;
-	use App\InternalApi\v1\AdminController;
-	use App\InternalApi\v1\CartController;
-	use App\InternalApi\v1\CertController;
-	use App\InternalApi\v1\Enrollment\AppealController;
-	use App\InternalApi\v1\EnrollmentController;
-	use App\InternalApi\v1\NotificationController;
-	use App\InternalApi\v1\ProductController;
-	use App\InternalApi\v1\ScormController;
-	use App\InternalApi\v1\StorageController;
-	use App\InternalApi\v1\SubsequentEducationController;
-	use App\InternalApi\v1\UserController;
 	use App\Service\Runtime;
 	use Pho\Api\ApiRouter;
 	use Pho\Auth\Session\SessionService;
