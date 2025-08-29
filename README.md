@@ -1,1 +1,1 @@
-# treasure-hunters
+# Treasure Hunters 💎

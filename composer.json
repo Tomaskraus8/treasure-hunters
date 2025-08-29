@@ -1,0 +1,79 @@
+{
+	"type": "project",
+	"authors": [
+		{
+			"name": "Tomáš Kraus",
+			"email": "tomas.kraus@capsa.cz"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"App\\": "core/classes"
+		}
+	},
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "https://github.com/Capsa-cz/pho-framework"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/Capsa-cz/pho-pho"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/Capsa-cz/pho-http"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/Capsa-cz/pho-api"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/Capsa-cz/pho-logger"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/Capsa-cz/pho-di"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/Capsa-cz/pho-repository"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/Capsa-cz/pho-mailer"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/Capsa-cz/pho-command"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/Capsa-cz/pho-auth"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/Capsa-cz/pho-file-watcher"
+		}
+	],
+	"require": {
+		"php": "^8.4",
+		"pho/framework": "^1.5.0",
+		"pho/repository": "^1.4",
+		"pho/api": "^1.2.0",
+		"pho/pho": "^2.7.0",
+		"pho/http": "^1.9.0",
+      	"ext-mbstring": "*",
+		"ext-curl": "*",
+		"twig/twig": "^3.14"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "^9"
+	},
+	"config": {
+		"platform": {
+			"php": "8.4"
+		}
+	}
+}
