@@ -1,7 +1,7 @@
 <?php declare(strict_types = 1);
 
+	use App\InternalApi\v1\GameController;
 	use App\Service\Runtime;
-	use InternalApi\GameController;
 	use Pho\Api\ApiRouter;
 	use Pho\Auth\Session\SessionService;
 	use Pho\DI\Containers;
@@ -33,7 +33,8 @@
 
 			$router = new ApiRouter();
 			$router
-				->register("$apiBasePath/game/create", Method::GET, GameController::class, "create")
+				->register("$apiBasePath/games/{id}", Method::GET, GameController::class, "get")
+				->register("$apiBasePath/games/create", Method::POST, GameController::class, "create")
 
 				->process();
 		} catch(ResponsibleServerError $e) {

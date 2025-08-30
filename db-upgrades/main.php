@@ -1,0 +1,5 @@
+<?php declare(strict_types = 1);
+	$queries = [0 => null]; // init
+
+	$queries[] = "CREATE TABLE `game` (`id` INT NOT NULL AUTO_INCREMENT , `createdBy` INT NULL DEFAULT NULL , `updatedBy` INT NULL DEFAULT NULL , `createdAt` DATETIME NOT NULL , `updatedAt` DATETIME NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB";
+	$queries[] = "CREATE TABLE `card` (`id` INT NOT NULL AUTO_INCREMENT , `gameId` INT NOT NULL , `type` ENUM('shark','sardines','seahorse','dolphin','goodGenie','evilGenie','treasure','octopus','blowfish','anchor','water','mud2','mud3','mud4','mud5','isle','arrowStraight','arrowOblique','twoWayArrowStraight','twoWayArrowOblique','fourWayArrowStraight','fourWayArrowOblique','skippingArrowStraight','skippingArrowOblique','eightWayArrow') NOT NULL , `createdBy` INT NULL DEFAULT NULL , `updatedBy` INT NULL DEFAULT NULL , `createdAt` DATETIME NOT NULL , `updatedAt` DATETIME NOT NULL , PRIMARY KEY (`id`), INDEX (`gameId`)) ENGINE = InnoDB";
