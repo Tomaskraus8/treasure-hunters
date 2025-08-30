@@ -5,5 +5,3 @@
 	require_once __DIR__."/../../core/core.php";
 
 	$manager = new GameManager();
-
-	$manager->printMap();

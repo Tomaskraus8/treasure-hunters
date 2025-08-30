@@ -23,7 +23,6 @@
 			$game = $repository->find($id);
 
 			$repository->loadDeck($game);
-			dd($game);
 
 			return new OKResponseObject($game->export());
 		}

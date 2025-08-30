@@ -2,7 +2,7 @@
 
 	namespace App\Entity;
 
-	use App\DtoCollection\CardCollection;
+	use App\EntityCollection\CardCollection;
 	use Pho\Repository\Abstract\AbstractAIEntity;
 	use Pho\Auth\Trait\CreatedBy;
 	use Pho\Auth\Trait\UpdatedBy;

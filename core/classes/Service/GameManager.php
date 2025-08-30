@@ -3,8 +3,8 @@
 	namespace App\Service;
 
 	use App\Dto\Map;
-	use App\DtoCollection\CardCollection;
 	use App\Entity\Game;
+	use App\EntityCollection\CardCollection;
 	use App\EntityRepository\CardRepository;
 	use App\EntityRepository\GameRepository;
 	use App\Enums\Entity\Card\Type;
@@ -50,11 +50,8 @@
 		}
 
 		private function createDeck(): static {
-
 			$deck = new CardCollection();
-
 			$this->initCards($deck);
-
 			$this->game->setDeck($deck);
 
 			return $this;

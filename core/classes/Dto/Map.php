@@ -2,6 +2,7 @@
 
 	namespace App\Dto;
 
+	use App\EntityCollection\CardCollection;
 	use Pho\Exportable;
 
 	class Map {
