@@ -1,6 +1,8 @@
 <?php declare(strict_types = 1);
 
+	use App\InternalApi\v1\BoatController;
 	use App\InternalApi\v1\GameController;
+	use App\InternalApi\v1\HunterController;
 	use App\Service\Runtime;
 	use Pho\Api\ApiRouter;
 	use Pho\Auth\Session\SessionService;
@@ -33,8 +35,11 @@
 
 			$router = new ApiRouter();
 			$router
-				->register("$apiBasePath/games/{id}", Method::GET, GameController::class, "get")
 				->register("$apiBasePath/games/create", Method::POST, GameController::class, "create")
+				->register("$apiBasePath/games/{id}", Method::GET, GameController::class, "get")
+				->register("$apiBasePath/games/{id}/fields/discover", Method::POST, GameController::class, "discoverField")
+				->register("$apiBasePath/games/{gameId}/boats/{boatId}/move", Method::PATCH, BoatController::class, "move")
+				->register("$apiBasePath/games/{gameId}/hunters/{hunterId}/select", Method::PATCH, HunterController::class, "selectHunter")
 
 				->process();
 		} catch(ResponsibleServerError $e) {

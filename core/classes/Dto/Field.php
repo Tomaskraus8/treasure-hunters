@@ -2,9 +2,10 @@
 
 	namespace App\Dto;
 
+	use Pho\CollectionItemInterface;
 	use Pho\Exportable;
 
-	class Position {
+	class Field implements CollectionItemInterface {
 
 		use Exportable;
 
@@ -24,5 +25,9 @@
 
 		public function getY(): int {
 			return $this->y;
+		}
+
+		public function equals(Field $field): bool {
+			return ($field->getX() === $this->x && $field->getY() === $this->y);
 		}
 	}

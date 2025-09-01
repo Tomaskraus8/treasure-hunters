@@ -19,9 +19,29 @@
 	 */
 	class GameRepository extends AbstractAIEntityRepository {
 
+		public function loadPlayers(Game $game, bool $withHunters = false): static {
+			$repository = new PlayerRepository();
+			$players = $repository->findBy(["gameId" => $game->getId()], ["id" => "ASC"]);
+
+			if($withHunters) {
+				$repository->loadPlayersHunters($players);
+			}
+
+			$game->setPlayers($players);
+
+			return $this;
+		}
+
 		public function loadDeck(Game $game): static {
 			$deck = new CardRepository()->findBy(["gameId" => $game->getId()], ["Id" => "ASC"]);
 			$game->setDeck($deck);
+
+			return $this;
+		}
+
+		public function loadBoats(Game $game): static {
+			$boats = new BoatRepository()->findBy(["gameId" => $game->getId()], ["Id" => "ASC"]);
+			$game->setBoats($boats);
 
 			return $this;
 		}

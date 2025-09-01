@@ -2,35 +2,29 @@
 
 	namespace App\Dto;
 
-	use App\EntityCollection\CardCollection;
+	use App\DtoCollection\FieldCollection;
 	use Pho\Exportable;
 
 	class Map {
 
 		use Exportable;
 
-		private CardsDeck $deck;
-		private CardCollection $cards;
+		private FieldCollection $fields;
 
 		public function __construct() {
-			$this->deck = new CardsDeck();
-			$this->cards = new CardCollection();
-			$this->initMap();
+			$this->fields = new FieldCollection();
+			for($y = 0; $y < 12; $y++) {
+				for($x = 0; $x < 12; $x++) {
+					$this->fields->addItem(new Field($x, $y));
+				}
+			}
 		}
 
 		protected function publicFields(): array {
-			return ["cards"];
+			return ["fields"];
 		}
 
-		private function initMap(): static {
-			for($y = 0; $y < 12; $y++) {
-				for($x = 0; $x < 12; $x++) {
-					$card = $this->deck->drawCard();
-					$card->setPosition(new Position($x, $y));
-					$this->cards->addItem($card);
-				}
-			}
-
-			return $this;
+		public function getFields(): FieldCollection {
+			return $this->fields;
 		}
 	}

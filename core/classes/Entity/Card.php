@@ -2,6 +2,7 @@
 
 	namespace App\Entity;
 
+	use App\Dto\Field;
 	use App\Enums\Entity\Card\Type;
 	use Pho\Repository\Abstract\AbstractAIEntity;
 	use Pho\Auth\Trait\CreatedBy;
@@ -18,7 +19,12 @@
 
 		protected int $gameId;
 		protected Type $type;
-		// FIXME position
+		protected ?int $x = null;
+		protected ?int $y = null;
+
+		protected function publicFields(): array {
+			return ["id", "type", "field"];
+		}
 
 		public function getGameId(): int {
 			return $this->gameId;
@@ -34,5 +40,20 @@
 
 		public function setType(Type $type): static {
 			return $this->set("type", $type);
+		}
+
+		public function getField(): ?Field {
+			if($this->x !== null && $this->y !== null) {
+				return new Field($this->x, $this->y);
+			} else {
+				return null;
+			}
+		}
+
+		public function setField(Field $field): static {
+			$this->set("x", $field->getX());
+			$this->set("y", $field->getY());
+
+			return $this;
 		}
 	}
